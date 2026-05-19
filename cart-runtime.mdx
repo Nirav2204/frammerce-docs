@@ -1,0 +1,72 @@
+---
+title: Cart runtime
+description: "How Frammerce keeps the cart in sync across every page on your Framer site, automatically."
+icon: "bolt"
+---
+
+The cart runtime is the script Frammerce installs into your Framer project to keep the cart state in sync across pages. You don't write it, you don't copy/paste it. The plugin handles install, update, and removal.
+
+## What it does
+
+The runtime:
+
+- **Holds cart state** in a single in-memory store shared across all Frammerce components on a page
+- **Persists state** in `localStorage` so the cart survives page reloads and visits
+- **Talks to Shopify's Storefront API** for cart operations (add line, update quantity, remove line, fetch totals)
+- **Hands off to checkout** when the buyer taps the Checkout button - opens Shopify's hosted checkout in the same tab
+
+## How it's installed
+
+The runtime is injected into your project's `headStart` via Framer's `setCustomCode` API. The script tag carries a JSON config:
+
+```html
+<script id="frammerce-cart-config" type="application/json">
+  {"storeDomain":"...","accessToken":"...","apiVersion":"2024-10","plan":"basic"}
+</script>
+```
+
+Install happens automatically:
+
+- The first time you insert a Frammerce component
+- Whenever the credentials or plan change
+- On every project open (validates the config hasn't drifted)
+
+<Note>
+You never edit this script by hand. If you need to remove the runtime entirely, **Disconnect Store** from the Settings page.
+</Note>
+
+<img src="/images/cart-published-site.png" alt="Cart drawer working on a live published Framer site" />
+
+## How components use it
+
+Every Frammerce cart component subscribes to the shared store. That means:
+
+- Adding an item from the product page updates the cart badge in the navbar immediately
+- The cart drawer reflects the latest line items across every page
+- Subtotals and item counts stay consistent
+
+No props need to be wired between components. They find each other through the runtime.
+
+## API version
+
+Frammerce pins to Shopify Storefront API version **`2024-10`** by default. The plugin manages version bumps in lockstep with component updates, so you don't have to.
+
+## What ships with your published site
+
+When you publish your Framer project, the cart runtime ships in the HTML automatically. Your published site:
+
+- Loads the config script on every page
+- Initialises the cart store from `localStorage`
+- Wires up any Frammerce components on the page
+
+You don't need to configure hosting, DNS, or anything else - it just works as part of the Framer site.
+
+## "Powered by Frammerce" badge
+
+On the **Basic** plan, every published page renders a small "Powered by Frammerce" badge in the body. This funds the free tier.
+
+Upgrade to **Pro** or **Scale** to drop the badge. The plugin automatically removes the script on the next project open after the upgrade.
+
+<Card title="Plans & licenses" icon="award" href="/plans-and-licenses">
+  See what each tier unlocks.
+</Card>

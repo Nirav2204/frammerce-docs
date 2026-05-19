@@ -1,0 +1,71 @@
+---
+title: Get a Storefront token
+description: "How to generate the Shopify Storefront API access token Frammerce needs to read your store."
+icon: "key"
+---
+
+Frammerce needs a **Storefront API** access token, not an Admin API token. The Storefront API is read-only, scoped to the public-facing data your storefront actually needs (products, collections, cart), and free on every Shopify plan.
+
+<Warning>
+Don't use an Admin API token. Frammerce will fail to validate it, and Admin tokens have far broader permissions than the plugin needs.
+</Warning>
+
+## Generate a token
+
+<Steps>
+  <Step title="Open the Shopify admin">
+    Go to your store's Shopify admin: `https://YOUR-SHOP.myshopify.com/admin`
+  </Step>
+  <Step title="Navigate to Apps → App and sales channel settings">
+    From the admin sidebar, click **Apps**, then **App and sales channel settings**.
+  </Step>
+  <Step title="Click Develop apps">
+    On the apps page, click **Develop apps for your store**. You may need to enable custom app development the first time.
+  </Step>
+  <Step title="Create a custom app">
+    Click **Create an app**. Name it something like `Frammerce` and pick yourself as the developer.
+  </Step>
+  <Step title="Configure Storefront API access">
+    Open the **Configuration** tab → **Storefront API access** → **Configure**.
+
+    <img src="/images/shopify-storefront-config.png" alt="Shopify admin - Storefront API access configuration screen" />
+
+    Enable at least these scopes (these are the ones Frammerce reads):
+
+    - `unauthenticated_read_product_listings`
+    - `unauthenticated_read_product_inventory`
+    - `unauthenticated_read_product_pickup_locations`
+    - `unauthenticated_read_product_tags`
+    - `unauthenticated_read_collection_listings`
+    - `unauthenticated_read_selling_plans`
+    - `unauthenticated_read_checkouts`
+    - `unauthenticated_write_checkouts`
+    - `unauthenticated_read_customers`
+
+    Save the configuration.
+  </Step>
+  <Step title="Install the app">
+    Switch back to the app overview and click **Install app** at the top right.
+  </Step>
+  <Step title="Copy the Storefront access token">
+    On the **API credentials** tab, scroll to **Storefront API access tokens** and copy the token (starts with `shpat_…`).
+
+    <img src="/images/shopify-token-copy.png" alt="Shopify admin - Storefront API access token copy" />
+  </Step>
+</Steps>
+
+## Use it in Frammerce
+
+Paste the token into the **Storefront access token** field on the Frammerce connect form, along with your `.myshopify.com` domain. Click **Connect**.
+
+<Card title="Connect your store" icon="plug" href="/quickstart">
+  Back to the Quickstart - finish the setup flow.
+</Card>
+
+## Rotating a token
+
+If you ever need to rotate the token (e.g. a former teammate had access), regenerate it in the Shopify admin, then in Frammerce:
+
+1. Open **Settings** in the plugin panel
+2. **Disconnect Store**
+3. Open **CMS** → paste the new token → **Connect**

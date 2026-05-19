@@ -1,0 +1,88 @@
+---
+title: Troubleshooting
+description: "Common issues and how to fix them - connect errors, sync drift, missing components, runtime mismatches."
+icon: "wrench"
+---
+
+## "Could not connect to Shopify"
+
+When the connect form rejects your credentials, the cause is almost always one of:
+
+<AccordionGroup>
+  <Accordion title="Wrong domain format">
+    Use the `.myshopify.com` domain, not your custom primary domain.
+
+    - ✅ `my-shop.myshopify.com`
+    - ❌ `shop.example.com`
+    - ❌ `https://my-shop.myshopify.com`
+
+    The protocol (`https://`) and path are not part of the domain field.
+  </Accordion>
+  <Accordion title="Admin token instead of Storefront token">
+    The token must start with `shpat_…` and come from **Storefront API access tokens**, not Admin tokens.
+
+    See [Get a Storefront token](/get-shopify-token) for the exact path inside Shopify admin.
+  </Accordion>
+  <Accordion title="Token revoked or app uninstalled">
+    If you uninstalled the custom app in Shopify, the token is dead. Reinstall the app or create a new one and re-copy the token.
+  </Accordion>
+  <Accordion title="Missing scopes">
+    The token needs the **Storefront API access scopes** listed in [Get a Storefront token](/get-shopify-token). Without them the connect succeeds but products won't load.
+  </Accordion>
+</AccordionGroup>
+
+## CMS sync fails or returns 0 products
+
+<AccordionGroup>
+  <Accordion title="No products are published to the Online Store">
+    The Storefront API only exposes products that are published to your **Online Store** sales channel. Open Shopify → product → sales channels → enable Online Store.
+  </Accordion>
+  <Accordion title="Sales-channel scope missing on the token">
+    If `unauthenticated_read_product_listings` was disabled on the custom app, Storefront API returns empty. Re-enable scopes (see token guide) and retry.
+  </Accordion>
+  <Accordion title="Rate-limited">
+    Very large catalogs (10k+ SKUs) may hit Storefront API rate limits during a full sync. Wait a minute and retry; the plugin resumes from where it left off.
+  </Accordion>
+</AccordionGroup>
+
+## Cart shows different counts on different pages
+
+Almost always a runtime install issue.
+
+1. Open **Settings** in the plugin panel
+2. Confirm the store is connected (the green pill should show "Connected")
+3. **Disconnect Store** then re-connect from **CMS** - this reinstalls the runtime fresh
+
+If the issue persists, the runtime config script in your `headStart` may have been edited manually. Don't edit it - the plugin manages it.
+
+## "Powered by Frammerce" badge won't go away after upgrading to Pro
+
+The badge is removed on the **next time the plugin opens your project**. To force it now:
+
+1. Open the project in Framer
+2. Open the Frammerce plugin
+3. Republish
+
+The plugin re-runs `setCustomCode` on open and strips the badge for Pro/Scale plans.
+
+## Components show "Loading…" forever
+
+This means the runtime can't reach Shopify. Check:
+
+- The store URL is reachable in your browser
+- The Storefront token still works (try fetching a single product via curl)
+- Your network isn't blocking `*.myshopify.com`
+
+## Drift detection shows everything as drifted
+
+Drift compares the **product update timestamp** between Shopify and the last sync. If you re-imported your products on Shopify (CSV import, theme migration), all timestamps change at once. Re-sync to clear.
+
+## Deleted products in Shopify still in Framer CMS
+
+Sync is **upsert-only** today - it doesn't delete CMS items when products are removed from Shopify. Delete those items manually in the Framer CMS, or contact support if you need bulk cleanup.
+
+## Need more help?
+
+<Card title="Email support" icon="envelope" href="mailto:hello@frammerce.dev">
+  We usually reply within a few hours on weekdays.
+</Card>

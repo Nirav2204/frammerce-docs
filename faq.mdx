@@ -1,0 +1,63 @@
+---
+title: FAQ
+description: "Common questions about Frammerce, Shopify integration, and how the plugin handles your data."
+icon: "circle-question"
+---
+
+<AccordionGroup>
+  <Accordion title="Do I need a Shopify Plus plan?">
+    No. Frammerce works with any Shopify plan, including development stores. The Storefront API we use is free on every tier.
+  </Accordion>
+
+  <Accordion title="Where does checkout happen?">
+    Shopify's hosted checkout. The Checkout button hands off to `checkout.shopify.com` (or your store's checkout subdomain), so all PCI compliance, fraud detection, and payments stay with Shopify. You design everything up to the checkout button in Framer.
+  </Accordion>
+
+  <Accordion title="Is my Storefront token safe?">
+    Your token is stored in your Framer project's `pluginData` - on Framer's storage, not on Frammerce servers. We never see or transmit it. Storefront tokens are also scoped to read-only public data, so even if leaked they can't modify your store.
+  </Accordion>
+
+  <Accordion title="Can I use my own design?">
+    Yes. Every Frammerce component is a Framer code component with property controls. Style it in Framer like any other layer - the component handles the data and logic, you handle the look.
+  </Accordion>
+
+  <Accordion title="What about refunds?">
+    14-day refund, no questions asked. Email `hello@frammerce.dev` with your order details and we'll process it.
+  </Accordion>
+
+  <Accordion title="Do you support subscriptions?">
+    Yes, via Shopify Subscriptions selling plans. Enable **Include subscriptions** in [Sync Settings](/sync-settings) and the cart components will render subscription pricing correctly.
+  </Accordion>
+
+  <Accordion title="Can I use Frammerce on multiple Framer projects?">
+    On **Basic** and **Pro**, one project per license. On **Scale**, unlimited projects.
+  </Accordion>
+
+  <Accordion title="Can I build client sites and resell?">
+    Yes, on the **Scale** tier. Scale includes a commercial license for unlimited client work.
+  </Accordion>
+
+  <Accordion title="Does Frammerce work on the Framer free plan?">
+    The plugin runs in any Framer project. Publishing your site requires a Framer plan that supports publishing - that's a Framer-side requirement, not a Frammerce one.
+  </Accordion>
+
+  <Accordion title="Can I edit the cart runtime script?">
+    No. The plugin manages the script in your `headStart` automatically. Manual edits will be overwritten the next time the plugin opens the project.
+  </Accordion>
+
+  <Accordion title="How are products synced - on every page load?">
+    No. Product data syncs into the Framer CMS via the plugin's **Sync products** action. Once synced, your pages render the CMS data statically. The cart runtime hits Shopify only for cart operations (add, update, remove, checkout).
+  </Accordion>
+
+  <Accordion title="Do you store any analytics or personal data?">
+    The marketing site uses privacy-friendly cookieless analytics. The plugin itself doesn't send any analytics back to Frammerce. Your Shopify customer data never leaves Shopify.
+  </Accordion>
+
+  <Accordion title="Is Frammerce affiliated with Framer or Shopify?">
+    No. Frammerce is an independent product that integrates with both platforms.
+  </Accordion>
+</AccordionGroup>
+
+<Card title="Still have questions?" icon="envelope" href="mailto:hello@frammerce.dev">
+  Email us and we'll get back within a few hours.
+</Card>

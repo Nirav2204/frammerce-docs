@@ -1,0 +1,72 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Frammerce",
+  "description": "The Framer plugin that connects Shopify to the canvas. User guide, components catalog, and how-tos.",
+  "colors": {
+    "primary": "#0066ff",
+    "light": "#4d92ff",
+    "dark": "#0040cc"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "groups": [
+      {
+        "group": "Getting started",
+        "pages": [
+          "introduction",
+          "quickstart",
+          "get-shopify-token"
+        ]
+      },
+      {
+        "group": "Working in Framer",
+        "pages": [
+          "components/overview",
+          "cms-sync",
+          "sync-settings",
+          "cart-runtime",
+          "publishing"
+        ]
+      },
+      {
+        "group": "Account",
+        "pages": [
+          "plans-and-licenses",
+          "settings"
+        ]
+      },
+      {
+        "group": "Help",
+        "pages": [
+          "troubleshooting",
+          "faq"
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Contact",
+        "href": "mailto:hello@frammerce.dev"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Install Plugin",
+      "href": "https://www.framer.com/marketplace/"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://twitter.com/frammerce",
+      "github": "https://github.com/frammerce",
+      "website": "https://frammerce.dev"
+    }
+  }
+}

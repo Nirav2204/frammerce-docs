@@ -1,0 +1,14 @@
+{
+  "name": "frammerce-docs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frammerce user guide and components reference, built with Mintlify.",
+  "scripts": {
+    "dev": "mint dev",
+    "broken-links": "mint broken-links",
+    "rename": "mint rename"
+  },
+  "devDependencies": {
+    "mint": "^4.2.566"
+  }
+}

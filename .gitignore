@@ -1,0 +1,14 @@
+# dependencies
+node_modules/
+
+# mintlify cache
+.mintlify/
+
+# logs / OS junk
+.DS_Store
+Thumbs.db
+*.log
+
+# editor
+.vscode/
+.idea/

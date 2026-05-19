@@ -1,0 +1,59 @@
+---
+title: Publishing
+description: "What happens when you hit Publish in Framer with Frammerce installed."
+icon: "globe"
+---
+
+Publishing a Frammerce site is no different from publishing any other Framer project - hit **Publish** and the site is live. The Frammerce runtime ships automatically.
+
+<img src="/images/published-storefront.png" alt="A Frammerce-built storefront live on a custom domain" />
+
+## What ships
+
+When Framer publishes your project, the build includes:
+
+- All inserted **Frammerce components** (as code components loaded from CDN)
+- The **cart runtime config** (in `<head>`)
+- The **"Powered by Frammerce" badge** (Basic plan only, in `<body>`)
+- Your Framer pages and styles
+
+The published site talks directly to Shopify's Storefront API for product data and cart operations.
+
+## Domains
+
+Use any domain Framer supports - `*.framer.app`, `*.framer.website`, or a custom domain you've connected to Framer. Frammerce has no domain restrictions of its own.
+
+## Storefront API rate limits
+
+Shopify enforces rate limits on the Storefront API. For most stores Frammerce operates well within them, but on very high-traffic launches:
+
+- Static product pages (CMS-driven) are cached by Framer's CDN - **no Shopify hits per visitor**
+- Cart operations hit Shopify per buyer action (add to cart, update quantity, checkout)
+- Live product lookups (non-CMS) hit Shopify per page view
+
+If you're expecting a spike, lean on CMS-driven pages for the catalog browsing flow and let the runtime handle cart operations only.
+
+## Checkout
+
+The **Checkout button** hands off to Shopify's hosted checkout. Buyers leave your Framer site for `checkout.shopify.com` (or your store's checkout subdomain). All PCI compliance, fraud detection, and payments are handled by Shopify.
+
+After checkout, Shopify redirects the buyer back to your store's confirmation page (configured in Shopify admin, not Frammerce).
+
+## SEO
+
+The Framer-rendered HTML includes:
+
+- Product titles, descriptions, prices (from the CMS)
+- OG tags configured per page in Framer
+- Structured data Framer adds automatically
+
+Search engines crawl the static HTML; the cart runtime is a client-side enhancement that doesn't block rendering.
+
+## What's NOT included
+
+Frammerce doesn't ship:
+
+- Server-side rendering of cart state (the cart is client-side only)
+- A dedicated checkout (Shopify owns checkout)
+- Order management or admin (use Shopify admin)
+- Customer account pages (a future release will add these)
