@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description: "Common issues and how to fix them - connect errors, sync drift, missing components, runtime mismatches."
+description: "Common issues and how to fix them - connect errors, sync problems, missing components, runtime mismatches."
 icon: "wrench"
 ---
 
@@ -72,10 +72,6 @@ This means the runtime can't reach Shopify. Check:
 - The store URL is reachable in your browser
 - The Storefront token still works (try fetching a single product via curl)
 - Your network isn't blocking `*.myshopify.com`
-
-## Drift detection shows everything as drifted
-
-Drift compares the **product update timestamp** between Shopify and the last sync. If you re-imported your products on Shopify (CSV import, theme migration), all timestamps change at once. Re-sync to clear.
 
 ## Deleted products in Shopify still in Framer CMS
 

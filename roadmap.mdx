@@ -1,0 +1,96 @@
+---
+title: Roadmap
+description: See what's coming next for Frammerce - track features from idea to launch.
+mode: custom
+---
+
+<div style={{ maxWidth: '1200px', margin: '0 auto', padding: '48px 24px' }}>
+
+  <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+    <h1 style={{ fontSize: '36px', fontWeight: 800, marginBottom: '12px' }}>Product Roadmap</h1>
+    <p style={{ fontSize: '17px', color: '#64748b', maxWidth: '560px', margin: '0 auto' }}>
+      Track the progress of upcoming features for Frammerce. Have an idea?{' '}
+      <a href="mailto:hello@frammerce.dev" style={{ color: '#0066ff', fontWeight: 600 }}>Email the team</a>.
+    </p>
+  </div>
+
+  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', alignItems: 'start' }}>
+
+    {/* Planned */}
+    <div style={{ borderRadius: '12px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ padding: '16px 20px', borderBottom: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#94a3b8', flexShrink: 0 }} />
+        <span style={{ fontWeight: 700, fontSize: '15px' }}>Planned</span>
+        <span style={{ fontSize: '13px', color: '#94a3b8', marginLeft: 'auto' }}>4</span>
+      </div>
+      <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <Card title="Storefront Templates" icon="layer-group">
+          Pre-built storefront and product-detail layouts you can drop into Framer and customise. The Templates screen in the plugin will surface curated designs ready to fork.
+        </Card>
+        <Card title="Customer Accounts" icon="user">
+          Login + account pages so buyers can view past orders, manage subscriptions, and update saved addresses - all inside your Framer site.
+        </Card>
+        <Card title="Search & Filtering" icon="magnifying-glass">
+          A search component and faceted filters (price, vendor, tags) for collection pages, powered by the synced Framer CMS.
+        </Card>
+        <Card title="Discount Codes" icon="ticket">
+          A discount-code input component that applies a Shopify promo to the cart and reflects the discount in the Cart Subtotal and Checkout components.
+        </Card>
+      </div>
+    </div>
+
+    {/* In Progress */}
+    <div style={{ borderRadius: '12px', border: '1px solid #bfdbfe', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ padding: '16px 20px', borderBottom: '1px solid #bfdbfe', display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#3b82f6', flexShrink: 0 }} />
+        <span style={{ fontWeight: 700, fontSize: '15px' }}>In Progress</span>
+        <span style={{ fontSize: '13px', color: '#94a3b8', marginLeft: 'auto' }}>2</span>
+      </div>
+      <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <Card title="Multi-Currency Display" icon="dollar-sign">
+          Render product and cart prices in the buyer's local currency using Shopify Markets configuration. Currency picker component coming alongside.
+        </Card>
+        <Card title="Auto-sync on schedule" icon="clock-rotate-left">
+          Background re-sync of the Framer CMS on a schedule (hourly / daily) so the catalog stays fresh without manual sync clicks.
+        </Card>
+      </div>
+    </div>
+
+    {/* Done */}
+    <div style={{ borderRadius: '12px', border: '1px solid #bbf7d0', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ padding: '16px 20px', borderBottom: '1px solid #bbf7d0', display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#22c55e', flexShrink: 0 }} />
+        <span style={{ fontWeight: 700, fontSize: '15px' }}>Done</span>
+        <span style={{ fontSize: '13px', color: '#94a3b8', marginLeft: 'auto' }}>6</span>
+      </div>
+      <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <Card title="21 Commerce Components" icon="shapes">
+          Full catalog of product and cart components shipped with v1.0 - Gallery, Variant Picker, Add to Cart, Cart Drawer, Checkout, and 16 more.
+        </Card>
+        <Card title="Framer CMS Sync" icon="database">
+          Pull Shopify products into a Framer managed collection with field-picker control over what gets synced.
+        </Card>
+        <Card title="Auto-installed cart runtime" icon="bolt">
+          One cart state shared across every page on the published site. The runtime injects itself - no copy-paste, no config.
+        </Card>
+        <Card title="Storefront API connection" icon="plug">
+          One-click Shopify connect with a Storefront access token. Credentials stay in the Framer project's pluginData, never on our servers.
+        </Card>
+        <Card title="Sync Settings" icon="sliders">
+          Per-project toggles for compare-at price, vendor, tags, and selling-plan support.
+        </Card>
+        <Card title="License key activation" icon="key">
+          Upgrade to Pro or Scale by activating a license key in the plugin panel. Unlocks checkout on the published site and removes the Frammerce badge.
+        </Card>
+      </div>
+    </div>
+
+  </div>
+
+  <div style={{ textAlign: 'center', marginTop: '48px' }}>
+    <Card title="Have an idea?" icon="lightbulb" href="mailto:hello@frammerce.dev">
+      Email us - we read every feature request and prioritise by community demand.
+    </Card>
+  </div>
+
+</div>

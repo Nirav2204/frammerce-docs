@@ -29,13 +29,15 @@ Install happens automatically:
 
 - The first time you insert a Frammerce component
 - Whenever the credentials or plan change
-- On every project open (validates the config hasn't drifted)
+- On every project open (re-validates the installed config)
 
 <Note>
 You never edit this script by hand. If you need to remove the runtime entirely, **Disconnect Store** from the Settings page.
 </Note>
 
-<img src="/images/cart-published-site.png" alt="Cart drawer working on a live published Framer site" />
+<Frame>
+  <img src="/images/cart-published-site.png" alt="Cart drawer working on a live published Framer site" />
+</Frame>
 
 ## How components use it
 
@@ -61,12 +63,21 @@ When you publish your Framer project, the cart runtime ships in the HTML automat
 
 You don't need to configure hosting, DNS, or anything else - it just works as part of the Framer site.
 
+## Checkout gating
+
+The runtime knows which plan is active on this project and uses that to gate the moment of order.
+
+- **Basic (free)** - cart works fully. Add to cart, update quantities, view subtotal, open the cart drawer. Tapping **Checkout** or **Buy Now** on the published site shows an "Upgrade to take orders" prompt instead of creating a real Shopify checkout.
+- **Pro / Scale** - checkout and Buy Now create a real Shopify checkout URL and redirect the buyer.
+
+Inside the Framer canvas, everything works on every tier - so you can design and click around your full storefront on Basic without paying anything. The gate only fires on the **published** site.
+
 ## "Powered by Frammerce" badge
 
 On the **Basic** plan, every published page renders a small "Powered by Frammerce" badge in the body. This funds the free tier.
 
 Upgrade to **Pro** or **Scale** to drop the badge. The plugin automatically removes the script on the next project open after the upgrade.
 
-<Card title="Plans & licenses" icon="award" href="/plans-and-licenses">
-  See what each tier unlocks.
+<Card title="See the plan tiers" icon="award" href="/faq">
+  What changes between Free, Pro, and Scale.
 </Card>

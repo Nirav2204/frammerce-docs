@@ -4,7 +4,9 @@ description: "The 21 production-ready components Frammerce ships - 7 product blo
 icon: "shapes"
 ---
 
-<img src="/images/components-panel.png" alt="Frammerce Components screen with Product/Cart tabs and the catalog grid" />
+<Frame>
+  <img src="/images/components-panel.png" alt="Frammerce Components screen with Product/Cart tabs and the catalog grid" />
+</Frame>
 
 Every Frammerce component is a published Framer code component. You can:
 
@@ -14,83 +16,89 @@ Every Frammerce component is a published Framer code component. You can:
 
 All components subscribe to the same cart runtime, so they stay in sync across pages automatically.
 
+<Note>
+**All 21 components are available on every plan.** Design and preview your full storefront on the Free tier - upgrade to Pro or Scale only when you're ready to accept real orders.
+</Note>
+
 ## Product components (7)
 
 Used on product detail pages and product cards.
 
 <CardGroup cols={2}>
   <Card title="Product Gallery" icon="/images/components/product/product-gallery-light.svg">
-    Main image + thumbnails. Free tier.
+    Main image + thumbnails for the active product.
   </Card>
   <Card title="Product Price" icon="/images/components/product/product-price-light.svg">
-    Active price with optional compare-at. Free tier.
+    Active price, optional compare-at strikethrough.
   </Card>
   <Card title="Variant Picker" icon="/images/components/product/variant-picker-light.svg">
-    Size / colour / option swatches. Free tier.
+    Size / colour / material option swatches.
   </Card>
   <Card title="Quantity Input" icon="/images/components/product/product-quantity-light.svg">
-    Steppers for buy quantity. **Pro tier.**
+    Steppers to set the buy quantity.
   </Card>
   <Card title="Stock Status" icon="/images/components/product/product-stock-light.svg">
-    In-stock / sold-out indicator. **Pro tier.**
+    In-stock / low / sold-out indicator.
   </Card>
   <Card title="Add to Cart" icon="/images/components/product/add-to-cart-light.svg">
-    Reactive add-to-cart button. Free tier.
+    Reactive button that adds the variant to the cart.
   </Card>
   <Card title="Buy Now" icon="/images/components/product/buy-now-light.svg">
-    Skip-the-cart instant checkout. **Scale tier.**
+    Skip-the-cart instant Shopify checkout.
   </Card>
 </CardGroup>
 
 ## Cart components (14)
 
-Used to build the cart drawer / cart page experience.
+Used to build the cart drawer or cart page.
 
 <CardGroup cols={2}>
   <Card title="Cart Button" icon="/images/components/cart/cart-button-light.svg">
-    Opens the cart drawer. Free tier.
+    Opens the cart drawer from the navbar.
   </Card>
   <Card title="Item Count Badge" icon="/images/components/cart/item-count-light.svg">
-    Live cart item count. Free tier.
+    Live total item count, updates everywhere.
   </Card>
   <Card title="Cart Close Button" icon="/images/components/cart/close-button-light.svg">
-    Dismisses the cart drawer. Free tier.
+    Dismisses the cart drawer.
   </Card>
   <Card title="Cart Item List" icon="/images/components/cart/item-list-light.svg">
-    Renders all cart lines. Free tier.
+    Renders every line in the cart.
   </Card>
   <Card title="Cart Item Row" icon="/images/components/cart/item-row-light.svg">
-    Single line layout shell. Free tier.
+    Layout shell for a single cart line.
   </Card>
   <Card title="Line Image" icon="/images/components/cart/line-image-light.svg">
-    Product thumbnail in cart. Free tier.
+    Product thumbnail for a cart row.
   </Card>
   <Card title="Line Title" icon="/images/components/cart/line-title-light.svg">
-    Variant-aware product name. Free tier.
+    Variant-aware product name.
   </Card>
   <Card title="Line Variant Info" icon="/images/components/cart/line-variant-info-light.svg">
-    Selected options summary. **Pro tier.**
+    Selected options summary (Black / Medium).
   </Card>
   <Card title="Line Quantity Stepper" icon="/images/components/cart/line-quantity-light.svg">
-    Inline +/- for cart lines. **Pro tier.**
+    Inline +/- to change the line quantity.
   </Card>
   <Card title="Line Unit Price" icon="/images/components/cart/line-unit-price-light.svg">
-    Per-item formatted price. **Pro tier.**
+    Per-item formatted price.
   </Card>
   <Card title="Line Total Price" icon="/images/components/cart/line-total-light.svg">
-    Quantity × unit price. **Pro tier.**
+    Quantity × unit price.
   </Card>
   <Card title="Remove Button" icon="/images/components/cart/remove-button-light.svg">
-    Removes a line from cart. Free tier.
+    Removes a line from the cart.
   </Card>
   <Card title="Cart Subtotal" icon="/images/components/cart/line-subtotal-light.svg">
-    Currency-formatted total. **Pro tier.**
+    Currency-formatted total (pre-tax, pre-shipping).
   </Card>
   <Card title="Checkout Button" icon="/images/components/cart/checkout-button-light.svg">
-    Hands off to Shopify checkout. Free tier.
+    Hands the cart off to Shopify checkout. **Gated by plan tier.**
   </Card>
 </CardGroup>
 
-## How tiers work
+## Where the paid tier kicks in
 
-Components labelled **Pro** or **Scale** are visible in the panel even on free plans, but appear with a lock badge and can't be inserted. Upgrade on the [pricing page](/plans-and-licenses) to unlock.
+All the components are included in every plan, including the Free plan. In the Free plan the **checkout functionality** is the one piece that's missing - to unlock it and start taking real orders, upgrade to **Pro** or **Scale**.
+
+To know more about our Pro and Scale plans, visit the [pricing page](https://frammerce.dev/pricing).

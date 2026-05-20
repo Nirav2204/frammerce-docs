@@ -1,13 +1,15 @@
 ---
 title: Get a Storefront token
-description: "How to generate the Shopify Storefront API access token Frammerce needs to read your store."
+description: "How to generate the Shopify Storefront API access token Frammerce needs to read your store, using Shopify's Headless sales channel."
 icon: "key"
 ---
 
-Frammerce needs a **Storefront API** access token, not an Admin API token. The Storefront API is read-only, scoped to the public-facing data your storefront actually needs (products, collections, cart), and free on every Shopify plan.
+Frammerce needs a **Storefront API** access token. The cleanest way to generate one on a modern Shopify store is through the **Headless** sales channel - Shopify's official first-party app for storefronts built outside of a Shopify theme.
+
+The Storefront API is read-only, scoped to the public-facing data your storefront needs (products, collections, cart, checkout), and free on every Shopify plan.
 
 <Warning>
-Don't use an Admin API token. Frammerce will fail to validate it, and Admin tokens have far broader permissions than the plugin needs.
+Don't use an Admin API token or a Storefront access token from a generic custom app. Frammerce expects a **Headless storefront** token because it has the right scopes pre-bundled for cart and checkout.
 </Warning>
 
 ## Generate a token
@@ -16,25 +18,38 @@ Don't use an Admin API token. Frammerce will fail to validate it, and Admin toke
   <Step title="Open the Shopify admin">
     Go to your store's Shopify admin: `https://YOUR-SHOP.myshopify.com/admin`
   </Step>
-  <Step title="Navigate to Apps → App and sales channel settings">
-    From the admin sidebar, click **Apps**, then **App and sales channel settings**.
-  </Step>
-  <Step title="Click Develop apps">
-    On the apps page, click **Develop apps for your store**. You may need to enable custom app development the first time.
-  </Step>
-  <Step title="Create a custom app">
-    Click **Create an app**. Name it something like `Frammerce` and pick yourself as the developer.
-  </Step>
-  <Step title="Configure Storefront API access">
-    Open the **Configuration** tab → **Storefront API access** → **Configure**.
 
-    <img src="/images/shopify-storefront-config.png" alt="Shopify admin - Storefront API access configuration screen" />
+  <Step title="Install the Headless sales channel">
+    Open the admin's top **Search** bar (`Ctrl/Cmd + K`), filter by **Sales channels**, and type `headless`. Click the **Headless** result to jump to its Shopify App Store listing.
 
-    Enable at least these scopes (these are the ones Frammerce reads):
+    <Frame>
+      <img src="/images/headless-search.png" alt="Searching for the Headless sales channel from the Shopify admin search bar" />
+    </Frame>
+
+    On the App Store listing, click **Install** to add the Headless sales channel to your store. It's free on every Shopify plan.
+
+    <Frame>
+      <img src="/images/headless-1-install.png" alt="Installing the Headless sales channel from the Shopify App Store" />
+    </Frame>
+
+    If you've already installed Headless on this store, skip this step and open it from the **Sales channels** group in the sidebar.
+  </Step>
+
+  <Step title="Create a Storefront">
+    Inside the Headless channel, click **Add storefront**. Give it a name like `Frammerce` and click **Create storefront**.
+
+    Each storefront gets its own set of API tokens, so you can keep your Frammerce credentials separate from anything else you build later. From the storefront overview you can rename it, manage the **Storefront API** and **Customer Account API** scopes, or delete the storefront to invalidate all its credentials at once.
+
+    <Frame>
+      <img src="/images/headless-2-create.png" alt="Headless storefront overview with Storefront API and Customer Account API management" />
+    </Frame>
+  </Step>
+
+  <Step title="Enable the Storefront API scopes Frammerce needs">
+    On the storefront you just created, find the **Storefront API** card and click **Manage**. Enable the following scopes:
 
     - `unauthenticated_read_product_listings`
     - `unauthenticated_read_product_inventory`
-    - `unauthenticated_read_product_pickup_locations`
     - `unauthenticated_read_product_tags`
     - `unauthenticated_read_collection_listings`
     - `unauthenticated_read_selling_plans`
@@ -42,15 +57,19 @@ Don't use an Admin API token. Frammerce will fail to validate it, and Admin toke
     - `unauthenticated_write_checkouts`
     - `unauthenticated_read_customers`
 
-    Save the configuration.
+    The Headless channel pre-selects most of these by default. Save the changes.
   </Step>
-  <Step title="Install the app">
-    Switch back to the app overview and click **Install app** at the top right.
-  </Step>
-  <Step title="Copy the Storefront access token">
-    On the **API credentials** tab, scroll to **Storefront API access tokens** and copy the token (starts with `shpat_…`).
 
-    <img src="/images/shopify-token-copy.png" alt="Shopify admin - Storefront API access token copy" />
+  <Step title="Copy the Storefront API access token">
+    Back on the storefront overview, scroll to the **Storefront API access tokens** section. Click the copy icon next to the **public access token** - this is the token Frammerce uses.
+
+    <Frame>
+      <img src="/images/headless-3-scopes.png" alt="Copying the public Storefront API access token from the Headless storefront overview" />
+    </Frame>
+
+    <Note>
+    Use the **public** access token (read-only, safe to ship to the client). Don't paste a private token - those have elevated scopes and shouldn't sit in a published Framer site.
+    </Note>
   </Step>
 </Steps>
 
@@ -64,8 +83,10 @@ Paste the token into the **Storefront access token** field on the Frammerce conn
 
 ## Rotating a token
 
-If you ever need to rotate the token (e.g. a former teammate had access), regenerate it in the Shopify admin, then in Frammerce:
+If you ever need to rotate the token (e.g. a teammate left, the token leaked), regenerate it in the Headless channel, then in Frammerce:
 
 1. Open **Settings** in the plugin panel
 2. **Disconnect Store**
-3. Open **CMS** → paste the new token → **Connect**
+3. Open the **CMS** screen → paste the new token → **Connect**
+
+The cart runtime config in your Framer project's `headStart` updates on the next plugin open.

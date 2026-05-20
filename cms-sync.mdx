@@ -1,16 +1,18 @@
 ---
 title: CMS Sync
-description: "Pull your Shopify catalog into a Framer managed collection. Field picker, drift detection, and re-syncing."
+description: "Pull your Shopify catalog into a Framer managed collection. Field picker and re-syncing."
 icon: "database"
 ---
 
-Frammerce can sync your Shopify products into a **Framer managed collection** so your designers can lay out product pages with the CMS they already know. You decide which fields land in the collection, and the plugin tells you when something on Shopify has drifted out of sync.
+Frammerce can sync your Shopify products into a **Framer managed collection** so your designers can lay out product pages with the CMS they already know. You decide which fields land in the collection, and you can re-sync any time your store changes.
 
 ## Open the CMS screen
 
 In the plugin panel, click **CMS**. If you haven't connected a store yet, the connect form appears here.
 
-<img src="/images/cms-page.png" alt="Frammerce CMS screen" />
+<Frame>
+  <img src="/images/cms-page.png" alt="Frammerce CMS screen" />
+</Frame>
 
 ## Field picker
 
@@ -46,15 +48,6 @@ Hit **Sync products**. Frammerce will:
 <Note>
 The Storefront API only exposes products that are published to your storefront. Drafts and unlisted products are skipped.
 </Note>
-
-## Drift detection
-
-After the first sync, Frammerce tracks when your Shopify store has changed but Framer hasn't been re-synced.
-
-- A **Drift** badge appears next to any row whose Shopify state has changed
-- Counts in the footer tell you how many items need re-syncing
-
-Hit **Sync products** again to bring the CMS back in line.
 
 ## Re-syncing
 
