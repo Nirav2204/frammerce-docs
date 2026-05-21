@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="6" fill="#0066FF"/>
-  <path d="M8 10h14l-1.5 4H10.2l.4 2h10l-.8 4H11l-1-6H8v-4zm6 14a2 2 0 100 4 2 2 0 000-4zm7 0a2 2 0 100 4 2 2 0 000-4z" fill="#fff"/>
+<svg width="314" height="314" viewBox="0 0 314 314" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="313.941" height="313.941" rx="67.2732" fill="#0066FF"/>
+<rect x="41.5043" y="44.235" width="230.934" height="225.473" rx="27.8097" stroke="white" stroke-width="21.6585"/>
+<path d="M126.088 205.353H187.687C199.568 205.353 210.011 198.324 213.273 188.136L244.027 90.2393C245.58 85.38 250.559 82.0232 256.228 82.0232H269.126" stroke="white" stroke-width="23.5331" stroke-linecap="round"/>
+<path d="M142.131 151.987H86.8804" stroke="white" stroke-width="23.5331" stroke-linecap="round"/>
+<path d="M97.2335 196.364L75.5362 115.389L74.2505 110.643C72.8408 105.439 76.7597 100.317 82.1511 100.317H168.298" stroke="white" stroke-width="23.5331" stroke-linecap="round"/>
+<path d="M180.506 224.695C189.759 224.66 197.288 232.132 197.324 241.385C197.36 250.638 189.888 258.167 180.635 258.203C171.382 258.238 163.852 250.766 163.816 241.513C163.781 232.261 171.253 224.731 180.506 224.695Z" fill="white" stroke="white" stroke-width="2.66026" stroke-linecap="round"/>
+<path d="M109.918 224.701C119.166 224.701 126.672 232.207 126.672 241.455C126.672 250.703 119.166 258.209 109.918 258.209C100.67 258.209 93.1642 250.695 93.1642 241.455C93.1643 232.207 100.678 224.701 109.918 224.701Z" fill="white" stroke="white" stroke-width="2.66026" stroke-linecap="round"/>
 </svg>
